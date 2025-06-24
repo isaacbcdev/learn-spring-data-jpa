@@ -21,4 +21,19 @@ public class Person {
 
     @Column(name = "programming_language", nullable = false)
     private String programmingLanguage;
+
+    @Embedded
+    private Audit audit = new Audit();
+
+    public Person(Long id, String name, String lastname, String programmingLanguage) {
+        this.id = id;
+        this.name = name;
+        this.lastname = lastname;
+        this.programmingLanguage = programmingLanguage;
+    }
+
+    public Person(String name, String lastname) {
+        this.name = name;
+        this.lastname = lastname;
+    }
 }
